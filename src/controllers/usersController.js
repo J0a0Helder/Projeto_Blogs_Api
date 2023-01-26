@@ -7,13 +7,13 @@ const getAll = async (_req, res) => {
 
 const getById = async (req, res) => {
   const { id } = req.params;
-  const product = await usersService.getById(id);
-  res.status(200).json(product);
+  const user = await usersService.getById(id);
+  res.status(200).json(user);
 };
 
 const insertNew = async (req, res) => {
-  const newProduct = await usersService.insertNew();
-  res.status(201).send(newProduct);
+  const newUser = await usersService.insertNew();
+  res.status(201).send(newUser);
 };
 
 module.exports = {
