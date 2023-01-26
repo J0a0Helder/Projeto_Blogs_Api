@@ -12,7 +12,9 @@ const getById = async (req, res) => {
 };
 
 const insertNew = async (req, res) => {
-  const newUser = await usersService.insertNew();
+  const { body } = req;
+  const newUser = await usersService.insertNew(body);
+  if (newUser.type) return res.status(409).json({ message: newUser.message });
   res.status(201).send(newUser);
 };
 
