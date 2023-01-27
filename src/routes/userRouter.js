@@ -6,7 +6,7 @@ const tokenValidation = require('../middlewares/tokenMiddleware');
 const userRouter = express.Router();
 
 userRouter.get('/', tokenValidation, usersController.getAll);
-userRouter.get('/:id', usersController.getById);
+userRouter.get('/:id', tokenValidation, usersController.getById);
 userRouter.post('/', inputsValidation, usersController.insertNew);
 // userRouter.delete('/me', usersController.deleteP);
 
