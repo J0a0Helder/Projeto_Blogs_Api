@@ -4,7 +4,9 @@ const { User } = require('../models');
 const secret = process.env.JWT_SECRET || 'secretJWT';
 
 const getAll = async () => {
-  const users = await User.findAll();
+  const users = await User.findAll({
+    attributes: { exclude: ['password'] },
+  });
 
   return users;
 };
