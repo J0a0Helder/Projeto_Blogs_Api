@@ -19,8 +19,15 @@ const insertNew = async (req, res) => {
   res.status(201).send(newUser);
 };
 
+const deleteUsr = async (req, res) => {
+  const userId = req.user.id;
+  await usersService.deleteUsr(userId);
+  res.status(204).send();
+};
+
 module.exports = {
   getAll,
   getById,
   insertNew,
+  deleteUsr,
 };
