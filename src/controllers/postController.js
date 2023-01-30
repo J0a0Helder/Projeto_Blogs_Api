@@ -17,8 +17,17 @@ const getById = async (req, res) => {
   res.status(200).json(post);
 };
 
+const search = async (req, res) => {
+  const allPosts = await postService.getAll();
+  const filters = Object.values(req.query)[0].toLowerCase();
+  const posts = await postService.search(filters);
+  if (posts.type) return res.status(200).json(allPosts);
+  return res.status(200).send(posts);
+};
+
 module.exports = {
   // newPost,
   getAll,
   getById,
+  search,
 };
