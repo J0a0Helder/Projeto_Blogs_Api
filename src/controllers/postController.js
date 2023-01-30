@@ -1,9 +1,9 @@
 const postService = require('../services/postService');
 
-const newPost = async (_req, res) => {
-  const post = await postService.insertNew();
-  res.status(201).send(post);
-};
+// const newPost = async (_req, res) => {
+//   const post = await postService.insertNew();
+//   res.status(201).send(post);
+// };
 
 const getAll = async (_req, res) => {
   const allPosts = await postService.getAll();
@@ -18,7 +18,7 @@ const getById = async (req, res) => {
 };
 
 module.exports = {
-  newPost,
+  // newPost,
   getAll,
   getById,
 };
